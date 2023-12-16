@@ -11,7 +11,7 @@ const ChatInterface = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:3000/chats/getMessages", {})
+      .post("https://chatbot-service-wrsg.onrender.com/chats/getMessages", {})
       .then((response: any) => {
         if (response) {
           setChatResponse(response.data.messages);
@@ -22,7 +22,7 @@ const ChatInterface = () => {
   useEffect(() => {
     if (chatSaveStatus) {
       axios
-        .post("http://localhost:3000/chats/getMessages", {})
+        .post("https://chatbot-service-wrsg.onrender.com/chats/getMessages", {})
         .then((response: any) => {
           if (response) {
             setChatResponse(response.data.messages);
@@ -38,7 +38,7 @@ const ChatInterface = () => {
 
   const chatSaveService = async (chatTemp: any) => {
     return await axios
-      .post("http://localhost:3000/chats/saveMessage", { chat: chatTemp })
+      .post("https://chatbot-service-wrsg.onrender.com/chats/saveMessage", { chat: chatTemp })
       .then((response: any) => {
         if (response.data.status === true) {
           setChatSaveStatus(true);
@@ -55,7 +55,7 @@ const ChatInterface = () => {
 
   const onSendClick = async () => {
     await axios
-      .post("http://localhost:3000/chats/recieveMessage", {
+      .post("https://chatbot-service-wrsg.onrender.com/chats/recieveMessage", {
         messages: sendMessage,
       })
       .then((response: any) => {
@@ -67,7 +67,7 @@ const ChatInterface = () => {
 
   const onClearChatClick = async () => {
     await axios
-      .post("http://localhost:3000/chats/clearChat")
+      .post("https://chatbot-service-wrsg.onrender.com/chats/clearChat")
       .then((response: any) => {
         if (response) {
           setChatSaveStatus(true);
